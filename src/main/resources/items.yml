@@ -1,0 +1,7 @@
+COMMAND_PREVIEW:
+  item:
+    material: PAPER
+    name: "&aCommand Preview"
+    lore:
+      - ""
+      - "&7Command: &f%command%"

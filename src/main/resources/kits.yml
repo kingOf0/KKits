@@ -1,0 +1,20 @@
+food:
+  cooldown: 60 #In seconds
+  icon:
+    material: 'BREAD'
+    name: '&a&lFood'
+    lore:
+      - '&7Eat some food!'
+  commands:
+    - "say %player% ate some food!"
+  items:
+    '0':
+      material: 'BREAD'
+      name: '&a&lBread'
+      enchants:
+        DAMAGE_ALL: 2
+
+    '1':
+      material: 'COOKED_BEEF'
+      name: '&a&lSteak'
+      amount: 2

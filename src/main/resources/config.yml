@@ -1,0 +1,21 @@
+database:
+  driver: sqlite
+  sqlite:
+    file: data
+messages:
+  notNow: "§cBu işlemi şuanda gerçekleştiremezsiniz!"
+  noPermission: "§cBu işlemi gerçekleştirebilmek için gerekli yetkiye sahip değilsiniz!"
+  internalError: "§cBilinmeyen Hata!"
+  reloaded: "§cEklenti yeniden yüklendi! Herhangi bir hata için konsolu kontrol edin!"
+  noConsole: "§cKonsol bu komutu kullanamaz!"
+  kitNotFound: "§cBu isimde bir kit bulunamadı!"
+  onCooldown: "§cBu kiti şuanda kullanamazsınız!"
+  givenKit: "§c%player% adlı oyuncuya %kit% adlı kit verildi!"
+settings:
+  previewTitle: "§cKit Önizleme"
+  listTitle: "§cKits"
+  listRows: 3
+  giveClick: LEFT
+  aliases:
+      - "kit"
+      - "kkit"

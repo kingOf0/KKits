@@ -1,0 +1,10 @@
+main: com.kingOf0.kits.KKits
+name: KKits
+version: 1.0.1
+author: kingOf0
+api-version: 1.13
+depend:
+  - Vault
+  - KKotlin
+commands:
+  kkits: {}
