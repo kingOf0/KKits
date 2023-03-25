@@ -2,6 +2,7 @@ package com.kingOf0.kits.manager
 
 import com.kingOf0.kits.manager.FileManager.config
 import com.kingOf0.kits.shade.smartinventory.event.abs.ClickEvent
+import com.kingOf0.kits.util.KUtils
 import com.kingOf0.kits.util.KUtils.disable
 import org.bukkit.event.inventory.ClickType
 
@@ -42,6 +43,8 @@ object SettingsManager : IManager("SettingsManager") {
 
     var day = 24 * 60 * 60 * 1000
 
+    var loadLateSupport: Boolean = true
+
     override fun load(): Boolean {
         config.getConfigurationSection("messages")?.apply {
             if (isString("notNow")) notNow = getString("notNow")!!
@@ -75,6 +78,9 @@ object SettingsManager : IManager("SettingsManager") {
                 giveClick = ClickType.valueOf(getString("giveClick")!!)
             }
         }
+
+        if (SettingsManager.loadLateSupport) KUtils.disable("Couldn't enable loadLateSupport")
+
 
         return true
     }

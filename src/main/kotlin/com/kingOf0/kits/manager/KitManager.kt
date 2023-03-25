@@ -6,6 +6,7 @@ import com.kingOf0.kits.SMART_INVENTORY
 import com.kingOf0.kits.base.PlayerData
 import com.kingOf0.kits.provider.PreviewProvider
 import com.kingOf0.kits.shade.smartinventory.Page
+import com.kingOf0.kits.util.KUtils
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import java.util.*
@@ -25,6 +26,8 @@ object KitManager : IManager("KitManager") {
                 kit[id] = KitData(id, kitSection)
             }
         }
+        if (SettingsManager.loadLateSupport) KUtils.disable("Couldn't enable loadLateSupport")
+
         return true
     }
 

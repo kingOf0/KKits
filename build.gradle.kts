@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.7.20"
+    kotlin("jvm") version "1.8.10"
     id ("com.github.johnrengelman.shadow") version "7.0.0"
-    kotlin("plugin.serialization") version "1.7.20"
+    kotlin("plugin.serialization") version "1.8.10"
 }
 
 group = "com.kingOf0"
@@ -25,36 +25,20 @@ dependencies {
         exclude(group = "org.bstats")
     }
 
-    compileOnly("com.github.cryptomorin:XSeries:9.2.0")
-    compileOnly("org.xerial:sqlite-jdbc:3.36.0.2")
-    compileOnly("org.jetbrains.kotlin:kotlin-stdlib:1.7.20")
-    compileOnly("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    compileOnly("org.jetbrains.kotlin:kotlin-stdlib:1.8.10")
+    compileOnly("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0-Beta")
+    compileOnly("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
+    compileOnly("com.github.cryptomorin:XSeries:9.3.0")
 }
 
 
 tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
-    exclude ( "org/sqlite/native/Linux/**",
-        "org/sqlite/native/Mac/**",
-        "org/sqlite/native/FreeBSD/**",
-        "org/sqlite/native/Linux-Alpine/**",
-        "org/sqlite/native/DragonFlyBSD/**",
-        "org/sqlite/native/Windows/x86/**",
-        "org/sqlite/native/Windows/armv7/**",
-        "com/cryptomorin/xseries/particles/**",
-        "com/cryptomorin/xseries/XSound.class",
-        "javassist/**",
-        "io/leangen/**",
-        "LICENSE*",
-        "META-INF/**"
-    )
+    archiveFileName.set("KKits.jar")
 
-    relocate ("de.tr7zw", "com.kingOf0.tr7zw")
-    relocate ("com.google.gson", "com.kingOf0.kit.shade.gson")
+
     relocate("kotlin", "com.kingOf0.kotlin")
     relocate("kotlinx", "com.kingOf0.kotlinx")
     relocate("com.cryptomorin", "com.kingOf0.xseries")
-    relocate ("com.github.unldenis", "com.kingOf0.kit.shade.hologram")
-    relocate ("com.github.juliarn", "com.kingOf0.kit.shade.juliarn")
 }
 
 tasks.withType<KotlinCompile> {

@@ -6,6 +6,7 @@ import com.kingOf0.kits.util.KUtils.disable
 abstract class IManager(private val name: String) {
 
     protected abstract fun load() : Boolean
+    protected var failMessage: String? = null
 
     fun initialize() {
         runCatching { load() }
@@ -17,12 +18,18 @@ abstract class IManager(private val name: String) {
             }
     }
 
+    protected fun log(message: String) {
+        LOGGER.info("[$name] * $message")
+    }
+
     private fun success() {
         LOGGER.info("+ $name | Successfully loaded.")
     }
 
-    private fun failure() {
-        LOGGER.warning("- $name | Couldn't loaded successfully!")
-        disable()
+    fun failure() {
+        LOGGER.warning("- $name | Couldn't loaded successfully! | $failMessage")
+        disable(failMessage ?: "$name | Couldn't loaded successfully!") //todo: check appearance
     }
+
+
 }

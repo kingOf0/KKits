@@ -7,6 +7,7 @@ import com.kingOf0.kits.database.MySqlDatabase
 import com.kingOf0.kits.database.PostgreDatabase
 import com.kingOf0.kits.database.SQLiteDatabase
 import com.kingOf0.kits.manager.FileManager.config
+import com.kingOf0.kits.util.KUtils
 import java.util.*
 
 object DatabaseManager : IManager("DatabaseManager") {
@@ -46,6 +47,8 @@ object DatabaseManager : IManager("DatabaseManager") {
     }
 
     internal suspend fun setup(): Boolean {
+        if (SettingsManager.loadLateSupport) KUtils.disable("Couldn't enable loadLateSupport")
+
         database.setup()
         return database.test()
     }
